@@ -1,0 +1,9 @@
+{
+  "registry": {
+    "search": ["https://bower.herokuapp.com"]
+  },
+  "timeout": 300000,
+  "proxy": "http://internet:8085",
+  "https-proxy": "http://internet:8085",
+  "strict-ssl": false
+}

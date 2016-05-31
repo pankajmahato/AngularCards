@@ -1,0 +1,60 @@
+#header {
+        padding:5px;
+        background-color: #dedede;
+      }
+      #nav{
+        width:15%;
+        height:100%;
+        float:left;
+        position: absolute;
+        display: inline-block;
+        background-color: grey;
+      }
+      #nav ul{
+        margin: 0px;
+        padding: 0px;
+      }
+      #nav ul li {
+        padding: 12px;
+        border-bottom: 2px solid white;
+        list-style: none;
+        margin: 0;
+      }
+      #nav ul li:hover{
+        background: #bf9c78;
+      }
+      #nav ul li a {
+        padding: 0;
+        color: #f5d7b4;
+        text-decoration: none;
+        font-size: 18px;
+        display: block;
+        text-align: center;
+      }
+      #mainContent{
+        width:85%;
+        height: 100%;
+        padding: 10px;
+        margin-left: 15%;
+        position: absolute;
+        float:left;
+        display: inline-block;
+        overflow-y: scroll;
+      }
+      .card{
+        border:1px solid #bf9c78;
+        height:250px;
+        width: 250px;
+        display: inline-block;
+        margin: 20px;
+      }
+      .card .cardHeader{
+        border-bottom:1px solid #bf9c78;
+        height:50px;
+        width: 100%;
+        padding:10px 20px;
+        box-sizing: border-box;
+      }
+      .cardBody{
+        padding: 20px;
+      }

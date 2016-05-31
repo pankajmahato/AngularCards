@@ -1,118 +1,88 @@
 <!doctype html>
-<html ng-app="scotchApp">
-  <head>
-    <title>gulp sample
-    </title>
-    <!--build:js js/scripts.min.js -->
-    <!-- bower:js -->
-    <script src="bower_components/jquery/jquery.js"></script>
-    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/angular-route/angular-route.js"></script>
-    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-    <!-- endbower -->
-    <!-- inject:js -->
-    <script src="/app/script.js"></script>
-    <!-- endinject -->
-    <!-- endbuild -->
-    <!--build:css css/styles.min.css -->
-    <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-    <!-- endbower -->
-    <!-- inject:css -->
-    <link rel="stylesheet" href="/app/index.css">
-    <link rel="stylesheet" href="/app/modules/main/main.css">
-    <!-- endinject -->
-    <!-- endbuild -->
-    <style>
-      #header {
-        padding:5px;
-        background-color: #dedede;
-      }
-      #nav{
-        width:15%;
-        height:100%;
-        float:left;
-        position: absolute;
-        display: inline-block;
-        background-color: grey;
-      }
-      #nav ul{
-        margin: 0px;
-        padding: 0px;
-      }
-      #nav ul li {
-        padding: 12px;
-        border-bottom: 2px solid white;
-        list-style: none;
-        margin: 0;
-      }
-      #nav ul li:hover{
-        background: #bf9c78;
-      }
-      #nav ul li a {
-        padding: 0;
-        color: #f5d7b4;
-        text-decoration: none;
-        font-size: 18px;
-        display: block;
-        text-align: center;
-      }
-      #mainContent{
-        width:85%;
-        height: 100%;
-        padding: 10px;
-        margin-left: 15%;
-        position: absolute;
-        float:left;
-        display: inline-block;
-        overflow-y: scroll;
-      }
-      .card{
-        border:1px solid #bf9c78;
-        height:250px;
-        width: 250px;
-        display: inline-block;
-        margin: 20px;
-      }
-      .card .cardHeader{
-        border-bottom:1px solid #bf9c78;
-        height:50px;
-        width: 100%;
-        padding:10px 20px;
-        box-sizing: border-box;
-      }
-      .cardBody{
-        padding: 20px;
-      }
-    </style>
-    <script src="app/script.js">
-    </script>
-  </head>
-  <body ng-controller="mainController" style="height:100%;">
-    <div id="header">
-      <img src="assets/images/mindtree_color_logo.png" alt="Mindtree Logo">
-      <img src="assets/images/profile.jpg" alt="profile" height="70px" width="70px" style="float:right">
-    </div>
-    <div id="nav">
-      <ul>
-        <li>
-          <a href="#"> Employee
-          </a>
-        </li>
-        <li>
-          <a href="#admin"> Admin
-          </a>
-        </li>
-        <li>
-          <a href="#security"> Security
-          </a>
-        </li>
-      </ul>
-    </div>
-    <div id="mainContent">
-      <div ng-view>
-      </div>
-    </div>
-  </body>
+<html ng-app="staffApp">
+<head>
+<title>gulp sample</title>
+<!--build:js js/scripts.min.js -->
+<!-- bower:js -->
+<script src="bower_components/jquery/jquery.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script
+	src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<!-- endbower -->
+<!-- inject:js -->
+<script src="/app/script.js"></script>
+<!-- endinject -->
+<!-- endbuild -->
+<!--build:css css/styles.min.css -->
+<!-- bower:css -->
+<link rel="stylesheet"
+	href="bower_components/bootstrap/dist/css/bootstrap.css" />
+<!-- endbower -->
+<!-- inject:css -->
+<link rel="stylesheet" href="/app/style.css">
+<!-- endinject -->
+<!-- endbuild -->
+</head>
+<body ng-controller="mainController" style="height: 100%;">
+	<div id="header">
+		<img src="assets/images/mindtree_color_logo.png" alt="Mindtree Logo">
+		<img src="assets/images/profile.jpg" alt="profile" height="70px"
+			width="70px" style="float: right">
+	</div>
+	<div class="container-fluid">
+		<ul class="nav nav-pills nav-justified">
+			<li class="active"><a data-toggle="pill" href="#staffView">View</a></li>
+			<li><a data-toggle="pill" href="#staffCreate">Create</a></li>
+			<li><a data-toggle="pill" href="#staffUpdate">Update</a></li>
+			<li><a data-toggle="pill" href="#staffDelete">Delete</a></li>
+		</ul>
+		<div class="tab-content">
+			<div id="staffView" class="tab-pane fade in active">
+				<div id="nav">
+					<ul>
+						<li><a href="#"> Employee </a></li>
+						<li><a href="#admin"> Admin </a></li>
+						<li><a href="#security"> Security </a></li>
+					</ul>
+				</div>
+				<div id="mainContent">
+					<div ng-view></div>
+				</div>
+			</div>
+			<div id="staffCreate" class="tab-pane fade">
+				<form name="myForm" ng-submit="createForm()"
+					ng-controller="createController">
+					Name <input type="text" ng-model="fields.name" /><br> MID <input
+						type="text" ng-model="fields.mid" /><br> Age <input
+						type="text" ng-model="fields.age" /><br> Gender <input
+						type="text" ng-model="fields.gender" /><br> Competency <input
+						type="text" ng-model="fields.competency" /><br> Role <input
+						type="text" ng-model="fields.role" /><br>
+					<button type="submit">Create</button>
+				</form>
+			</div>
+			<div id="staffUpdate" class="tab-pane fade">
+				<form name="myForm" ng-submit="updateForm()"
+					ng-controller="updateController">
+					Name <input type="text" ng-model="fields.name" /><br> MID <input
+						type="text" ng-model="fields.mid" /><br> Age <input
+						type="text" ng-model="fields.age" /><br> Gender <input
+						type="text" ng-model="fields.gender" /><br> Competency <input
+						type="text" ng-model="fields.competency" /><br> Role <input
+						type="text" ng-model="fields.role" /><br>
+					<button type="submit">Update</button>
+				</form>
+			</div>
+			<div id="staffDelete" class="tab-pane fade">
+				<form name="myForm" ng-submit="deleteForm()"
+					ng-controller="deleteController">
+					MID <input type="text" ng-model="fields.mid" /><br>
+					<button type="submit">Delete</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
 </html>
